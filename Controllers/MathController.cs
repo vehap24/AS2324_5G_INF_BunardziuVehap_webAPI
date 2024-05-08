@@ -26,5 +26,22 @@ namespace AS2324_5G_INF_BunardziuVehap_webAPI.Controllers
                 return Json(new { Messaggio = messaggio, output = 0 });
             }
         }
+        [HttpGet("Potenza")]
+        public JsonResult Potenza(int A, int B)
+        {
+            string messaggio = "OK";
+            var operazioni = new Operazioni();
+            operazioni.N1 = A;
+            operazioni.N2 = B;
+            if (operazioni.N_positivo)
+            {
+                return Json(new { Messaggio = messaggio, output = operazioni.Potenza()});
+            }
+            else
+            {
+                messaggio = "KO";
+                return Json(new { Messaggio = messaggio, output = 0 });
+            }
+        }
     }
 }

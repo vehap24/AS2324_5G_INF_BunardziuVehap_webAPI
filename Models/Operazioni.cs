@@ -6,14 +6,8 @@
         public int N2 { get; set; }
         public bool N_positivo => N1 > 0 && N2 > 0;
         public bool Multiplo => N1 % N2 == 0;
-        public int Potenza(int N1, int N2)
-        {
-            int risultato = N1;
-            for(int i = 1; i < N2; i++)
-            {
-                risultato = risultato * i;
-            }
-            return risultato;
+        public double Potenza(){
+            return Math.Pow(N1, N2);
         }
         public bool AnnoBisestile => N1 % 4 == 0;
 
