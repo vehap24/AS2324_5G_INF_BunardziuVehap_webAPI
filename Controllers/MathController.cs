@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using AS2324_5G_INF_BunardziuVehap_webAPI.Models;
 
 namespace AS2324_5G_INF_BunardziuVehap_webAPI.Controllers
 {
@@ -7,6 +8,23 @@ namespace AS2324_5G_INF_BunardziuVehap_webAPI.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        [HttpGet("Multiplo")]
+        public JsonResult Multiplo(int A, int B)
+        {
+            string messaggio = "OK";
+            var operazioni = new Operazioni();
+            operazioni.N1 = A;
+            operazioni.N2 = B;
+            if (operazioni.N_positivo)
+            {
+                return Json(new { Messaggio = messaggio, output = operazioni.Multiplo });
+            }
+            else
+            {
+                messaggio = "KO";
+                return Json(new { Messaggio = messaggio, output = 0 });
+            }
         }
     }
 }

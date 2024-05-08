@@ -4,11 +4,12 @@
     {
         public int N1 { get; set; }
         public int N2 { get; set; }
-        public bool Multiplo => N2 % N1 == 0;
+        public bool N_positivo => N1 > 0 && N2 > 0;
+        public bool Multiplo => N1 % N2 == 0;
         public int Potenza(int N1, int N2)
         {
-            int risultato = 1;
-            for(int i = 0; i < N2; i++)
+            int risultato = N1;
+            for(int i = 1; i < N2; i++)
             {
                 risultato = risultato * i;
             }
@@ -16,8 +17,8 @@
         }
         public bool AnnoBisestile => N1 % 4 == 0;
 
-        public int Ipotenusa(int N1, int N2) {
-            ((N1 * N1) + (N2 * N2));
+        public float Ipotenusa(int N1, int N2) {
+            return (float)Math.Sqrt((N1 * N1) + (N2 * N2));
         }
     }
 }
